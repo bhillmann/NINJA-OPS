@@ -25,7 +25,7 @@ setup(
     install_requires=[],
     entry_points={
         'console_scripts': [
-            'ninja_ops' = 'ninja_ops.scripts:main',
+            'ninja_ops = ninja_ops.scripts.ninja_ops:main',
         ]
     },
 )
