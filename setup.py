@@ -22,5 +22,10 @@ setup(
     long_description=long_description,
     # scripts=glob(os.path.join('scripts', '*py')),
     keywords='',
-    install_requires=['click', 'pyyaml']
+    install_requires=[],
+    entry_points={
+        'console_scripts': [
+            'ninja_ops' = 'ninja_ops.scripts:main',
+        ]
+    },
 )
