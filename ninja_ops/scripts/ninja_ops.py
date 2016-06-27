@@ -448,9 +448,14 @@ def clean(files):
 
 # Runs ninja, bowtie2 and then processes output. All files output in specified output folder. 
 # User must specify ninja's directory as an environment variable named 'NINJA_DIR'
-def main(argparser):
-
-    args = get_args(argparser)
+def main():
+    p = argparse.ArgumentParser(description = "NINJA-OPS: NINJA Is Not Just Another OTU Picking Solution (v" + __version__ +")\n" + \
+                                              "Knights Lab (www.ninja-ops.ninja)\n" + \
+                                              "This program outputs an otu table and map from sequence reads in fasta format.", 
+                                add_help = True, 
+                                epilog ='NOTE: If one or more output files are empty, trying reverse complementing your input ' + \
+                                        'sequences with -r')
+    args = get_args(p)
     args = vars(args)
 
     # Opens logger to write to log and/or stdout
@@ -599,11 +604,4 @@ def main(argparser):
 #   -i "seqs.fna" -o "output" -r -t 200 -mo 'max' -s 0.98 -d 1.005 -q
 if __name__=='__main__':
     # Parses command line arguments
-    p = argparse.ArgumentParser(description = "NINJA-OPS: NINJA Is Not Just Another OTU Picking Solution (v" + __version__ +")\n" + \
-                                              "Knights Lab (www.ninja-ops.ninja)\n" + \
-                                              "This program outputs an otu table and map from sequence reads in fasta format.", 
-                                add_help = True, 
-                                epilog ='NOTE: If one or more output files are empty, trying reverse complementing your input ' + \
-                                        'sequences with -r')
-
-    main(p)
+    main()
