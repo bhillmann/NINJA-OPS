@@ -449,13 +449,13 @@ def clean(files):
 # Runs ninja, bowtie2 and then processes output. All files output in specified output folder. 
 # User must specify ninja's directory as an environment variable named 'NINJA_DIR'
 def main():
-    p = argparse.ArgumentParser(description = "NINJA-OPS: NINJA Is Not Just Another OTU Picking Solution (v" + __version__ +")\n" + \
+    argparser = argparse.ArgumentParser(description = "NINJA-OPS: NINJA Is Not Just Another OTU Picking Solution (v" + __version__ +")\n" + \
                                               "Knights Lab (www.ninja-ops.ninja)\n" + \
                                               "This program outputs an otu table and map from sequence reads in fasta format.", 
                                 add_help = True, 
                                 epilog ='NOTE: If one or more output files are empty, trying reverse complementing your input ' + \
                                         'sequences with -r')
-    args = get_args(p)
+    args = get_args(argparser)
     args = vars(args)
 
     # Opens logger to write to log and/or stdout
